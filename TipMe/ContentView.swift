@@ -11,19 +11,34 @@ import SwiftUI
 
 struct ContentView: View {
     @State var bill: String = ""
+    @State var selectedTipPercent = 5
     
     var body: some View {
         NavigationStack {
-            VStack {
+            VStack(spacing: 25) {
                 PriceCardView()
                 
-                Text("Enter your total bill amount")
-                    .font(.system(size: 20, weight: .semibold, design: .default))
-
-                TextField("", text: $bill)
-                    .frame(width: 350, height: 50)
-                    .background(Color.secondary.opacity(0.3))
-                    .cornerRadius(20)
+                VStack(alignment: .leading) {
+                    Text("Enter your total bill amount")
+                        .font(.system(size: 20, weight: .semibold, design: .default))
+                    
+                    TextField("", text: $bill)
+                        .font(.system(size: 20, weight: .medium, design: .default))
+                        .padding(.horizontal, 10)
+                        .frame(width: 350, height: 50)
+                        .background(Color.secondary.opacity(0.3))
+                        .cornerRadius(20)
+                    
+                    Text("Select desired Tip percent %")
+                        .font(.system(size: 20, weight: .semibold, design: .default))
+                }
+                
+                Picker("Tip", selection: $selectedTipPercent) {
+                    Text("5$")
+                    Text("10$")
+                    Text("15$")
+                }
+                .pickerStyle(.segmented)
             }
             .navigationTitle("Tip Me")
         }

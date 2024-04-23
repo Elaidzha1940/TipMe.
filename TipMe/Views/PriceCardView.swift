@@ -16,7 +16,7 @@ struct PriceCardView: View {
                 Text("Total per person: 800.00")
                 Text("Grand Total: : 300.00")
             }
-            .font(.system(size: 20, weight: .bold, design: .default))
+            .font(.system(size: 20, weight: .semibold, design: .default))
            
             Group {
                 Text("Bill: 150")
@@ -24,7 +24,7 @@ struct PriceCardView: View {
                 Text("Split by: 2")
             }
             .opacity(0.7)
-            .font(.system(size: 16, weight: .semibold, design: .default))
+            .font(.system(size: 16, weight: .medium, design: .default))
 
         }
         .frame(width: 350, height: 175)
