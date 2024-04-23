@@ -12,6 +12,7 @@
 		E4F8CCF52BD80EAE00013BEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4F8CCF42BD80EAE00013BEE /* Assets.xcassets */; };
 		E4F8CCF82BD80EAE00013BEE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4F8CCF72BD80EAE00013BEE /* Preview Assets.xcassets */; };
 		E4F8CCFF2BD8626C00013BEE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4F8CCFE2BD8626C00013BEE /* Launch Screen.storyboard */; };
+		E4F8CD012BD868D100013BEE /* PriceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F8CD002BD868D100013BEE /* PriceCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		E4F8CCF42BD80EAE00013BEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4F8CCF72BD80EAE00013BEE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E4F8CCFE2BD8626C00013BEE /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		E4F8CD002BD868D100013BEE /* PriceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				E4F8CCF02BD80EAD00013BEE /* TipMeApp.swift */,
 				E4F8CCF22BD80EAD00013BEE /* ContentView.swift */,
+				E4F8CD022BD86AFA00013BEE /* Views */,
 				E4F8CCF42BD80EAE00013BEE /* Assets.xcassets */,
 				E4F8CCF62BD80EAE00013BEE /* Preview Content */,
 			);
@@ -68,6 +71,14 @@
 				E4F8CCF72BD80EAE00013BEE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E4F8CD022BD86AFA00013BEE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E4F8CD002BD868D100013BEE /* PriceCardView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4F8CCF32BD80EAD00013BEE /* ContentView.swift in Sources */,
+				E4F8CD012BD868D100013BEE /* PriceCardView.swift in Sources */,
 				E4F8CCF12BD80EAD00013BEE /* TipMeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
