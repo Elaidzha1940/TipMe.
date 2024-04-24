@@ -18,6 +18,8 @@ struct ContentView: View {
     @State var totalBill: String = "0.00" // Grand Total
     @State var tip: String = "0.00"
     
+    @State var showAlert: Bool = false
+    
     let step = 1
     let range = 1...20
     
@@ -127,11 +129,17 @@ struct ContentView: View {
             .onChange(of: selectedTipPercent) { _ in
                 resetValues()
             }
+            .alert("Please enter a valid number", isPresented: $showAlert) {
+                Button("OK", role: .cancel) {}
+            }
         }
     }
     
     func calculatTip() -> () {
-        guard let billAmountNumber = formatter.number(from: bill) else { return }
+        guard let billAmountNumber = formatter.number(from: bill) else {
+            showAlert = true
+            return
+        }
         
         let billAmount = Float(truncating: billAmountNumber)
         let tipPercentage = Float(selectedTipPercent) / 100.0
@@ -149,11 +157,6 @@ struct ContentView: View {
         self.billWithTip = formatter.string(from: NSNumber(value: billWithTip)) ?? "0.00"
         self.totalBill = formatter.string(from: NSNumber(value: totalBillWithTip)) ?? "0.00"
         self.tip = formatter.string(from: NSNumber(value: tipAmount)) ?? "0.00"
-        
-        print("Bill", billAmount)
-        print("tip amount", tipAmount)
-        print("total bill per person", billWithTip)
-        print("grand total", totalBillWithTip)
     }
     
     func resetValues() -> () {
