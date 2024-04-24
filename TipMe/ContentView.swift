@@ -102,6 +102,11 @@ struct ContentView: View {
                 
                 Button(action: {
                     resetValues()
+                    
+                    // Optional
+                    bill = ""
+                    selectedTipPercent = 5
+                    personsToSplitBill = 1
                 }, label: {
                     Text("Clear")
                         .font(.system(size: 18, weight: .semibold, design: .default))
@@ -114,6 +119,14 @@ struct ContentView: View {
             .navigationTitle("Tip Me")
             .padding(.leading, 20)
             .padding(.trailing, 20)
+            .onChange(of: bill) { newValue in
+                if newValue.isEmpty{
+                    resetValues()
+                }
+            }
+            .onChange(of: selectedTipPercent) { _ in
+                resetValues()
+            }
         }
     }
     
@@ -144,7 +157,9 @@ struct ContentView: View {
     }
     
     func resetValues() -> () {
-        print("User is...")
+        billWithTip = "0.00"
+        totalBill = "0.00"
+        tip = "0.00"
     }
 }
 

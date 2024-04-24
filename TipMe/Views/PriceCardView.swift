@@ -21,7 +21,7 @@ struct PriceCardView: View {
         VStack(spacing: 10) {
             Group {
                 Text("Total per person: \(billWithTip)")
-                Text("Grand Total: : \(totalBill)")
+                Text("Grand Total: \(totalBill)")
             }
             .font(.system(size: 20, weight: .semibold, design: .default))
             
