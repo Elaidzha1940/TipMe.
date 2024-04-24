@@ -14,9 +14,9 @@ struct ContentView: View {
     @State var selectedTipPercent = 5
     @State var personsToSplitBill = 1
     
-    @State var billWithTips: String = "0.00"
-    @State var totalBill: String = "0.00"
-    @State var tips: String = "0.00"
+    @State var billWithTip: String = "0.00"
+    @State var totalBill: String = "0.00" // Grand Total
+    @State var tip: String = "0.00"
     
     let step = 1
     let range = 1...20
@@ -35,14 +35,20 @@ struct ContentView: View {
         // MARK: - NavigationStack
         NavigationStack {
             VStack(spacing: 25) {
-                PriceCardView()
+                PriceCardView(
+                    billWithTip: $billWithTip,
+                    totalTip: $tip,
+                    tipPercent: $selectedTipPercent,
+                    originalBill: $bill,
+                    totalBill: $totalBill,
+                    billPersons: $personsToSplitBill)
                 
                 VStack(alignment: .leading) {
                     Text("Enter your total bill amount")
                         .font(.system(size: 20, weight: .semibold, design: .default))
-//                        .padding(.horizontal, 10)
+                    //                        .padding(.horizontal, 10)
                     
-                     TextField("", text: $bill)
+                    TextField("", text: $bill)
                         .font(.system(size: 20, weight: .medium, design: .default))
                         .padding(15)
                         .frame(width: 375, height: 50)
@@ -97,7 +103,7 @@ struct ContentView: View {
                 Button(action: {
                     resetValues()
                 }, label: {
-                    Text("Cancel")
+                    Text("Clear")
                         .font(.system(size: 18, weight: .semibold, design: .default))
                         .frame(width: 375, height: 50)
                         .background(Color.secondary.opacity(0.3).gradient)
@@ -126,6 +132,10 @@ struct ContentView: View {
         } else {
             billWithTip = totalBillWithTip
         }
+        
+        self.billWithTip = formatter.string(from: NSNumber(value: billWithTip)) ?? "0.00"
+        self.totalBill = formatter.string(from: NSNumber(value: totalBillWithTip)) ?? "0.00"
+        self.tip = formatter.string(from: NSNumber(value: tipAmount)) ?? "0.00"
         
         print("Bill", billAmount)
         print("tip amount", tipAmount)
