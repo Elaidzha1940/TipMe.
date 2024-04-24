@@ -27,8 +27,8 @@ struct PriceCardView: View {
             .font(.system(size: 16, weight: .medium, design: .default))
 
         }
-        .frame(width: 350, height: 175)
-        .background(Color("bg"))
+        .frame(width: 375, height: 175)
+        .background(Color("bg").gradient)
         .cornerRadius(20)
         .foregroundStyle(.white)
     }
