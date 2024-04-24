@@ -14,6 +14,10 @@ struct ContentView: View {
     @State var selectedTipPercent = 5
     @State var personsToSplitBill = 1
     
+    @State var billWithTips: String = "0.00"
+    @State var totalBill: String = "0.00"
+    @State var tips: String = "0.00"
+    
     let step = 1
     let range = 1...20
     
@@ -36,10 +40,11 @@ struct ContentView: View {
                 VStack(alignment: .leading) {
                     Text("Enter your total bill amount")
                         .font(.system(size: 20, weight: .semibold, design: .default))
+//                        .padding(.horizontal, 10)
                     
                      TextField("", text: $bill)
                         .font(.system(size: 20, weight: .medium, design: .default))
-                        .padding(10)
+                        .padding(15)
                         .frame(width: 375, height: 50)
                         .background(Color.secondary.opacity(0.3).gradient)
                         .cornerRadius(20)
@@ -107,9 +112,25 @@ struct ContentView: View {
     }
     
     func calculatTip() -> () {
-        print("Bill", bill)
-        print("selectedTipPercent", selectedTipPercent)
-        print("personsToSplitBill", personsToSplitBill)
+        guard let billAmountNumber = formatter.number(from: bill) else { return }
+        
+        let billAmount = Float(truncating: billAmountNumber)
+        let tipPercentage = Float(selectedTipPercent) / 100.0
+        let tipAmount = billAmount * tipPercentage
+        let totalBillWithTip = billAmount + tipAmount
+        
+        var billWithTip: Float = 0.0
+        
+        if personsToSplitBill > 1 {
+            billWithTip = totalBillWithTip / Float(personsToSplitBill)
+        } else {
+            billWithTip = totalBillWithTip
+        }
+        
+        print("Bill", billAmount)
+        print("tip amount", tipAmount)
+        print("total bill per person", billWithTip)
+        print("grand total", totalBillWithTip)
     }
     
     func resetValues() -> () {
