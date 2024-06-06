@@ -1,4 +1,4 @@
-⌨️ TipMe / SwiftUI.  
+⌨️ Split Tip / SwiftUI.  
 =========
 
 ---------
