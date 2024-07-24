@@ -1,4 +1,4 @@
-⌨️ Split Tip / SwiftUI.  
+⌨️ Split the Tip / SwiftUI.  
 =========
 
 ---------
