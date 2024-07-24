@@ -39,7 +39,6 @@
 		E4F8CCE42BD80EAD00013BEE = {
 			isa = PBXGroup;
 			children = (
-				E4F8CCFE2BD8626C00013BEE /* Launch Screen.storyboard */,
 				E4F8CCEF2BD80EAD00013BEE /* TipMe */,
 				E4F8CCEE2BD80EAD00013BEE /* Products */,
 			);
@@ -56,8 +55,8 @@
 		E4F8CCEF2BD80EAD00013BEE /* TipMe */ = {
 			isa = PBXGroup;
 			children = (
+				E4F8CCFE2BD8626C00013BEE /* Launch Screen.storyboard */,
 				E4F8CCF02BD80EAD00013BEE /* TipMeApp.swift */,
-				E4F8CCF22BD80EAD00013BEE /* ContentView.swift */,
 				E4F8CD022BD86AFA00013BEE /* Views */,
 				E4F8CCF42BD80EAE00013BEE /* Assets.xcassets */,
 				E4F8CCF62BD80EAE00013BEE /* Preview Content */,
@@ -76,6 +75,7 @@
 		E4F8CD022BD86AFA00013BEE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E4F8CCF22BD80EAD00013BEE /* ContentView.swift */,
 				E4F8CD002BD868D100013BEE /* PriceCardView.swift */,
 			);
 			path = Views;

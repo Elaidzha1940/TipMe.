@@ -48,7 +48,6 @@ struct ContentView: View {
                 VStack(alignment: .leading) {
                     Text("Enter your total bill amount")
                         .font(.system(size: 20, weight: .semibold, design: .default))
-                    //                        .padding(.horizontal, 10)
                     
                     TextField("", text: $bill)
                         .font(.system(size: 20, weight: .medium, design: .default))
@@ -113,12 +112,12 @@ struct ContentView: View {
                     Text("Clear")
                         .font(.system(size: 18, weight: .semibold, design: .default))
                         .frame(width: 375, height: 50)
-                        .background(Color.secondary.opacity(0.3).gradient)
+                        .background(Color.secondary.opacity(0.5).gradient)
                         .cornerRadius(20)
                         .foregroundStyle(Color("bg"))
                 })
             }
-            .navigationTitle("Tip Me")
+            .navigationTitle("Split the Tip")
             .padding(.leading, 20)
             .padding(.trailing, 20)
             .onChange(of: bill) { newValue in
